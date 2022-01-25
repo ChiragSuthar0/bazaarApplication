@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bazaar</title>
+    <link rel="stylesheet" href="../static/stylesheet.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Bazaar</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/home}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/profile}">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/SharePrices}">Share Prices</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/News}">News</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/home}">AboutUs</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <H1 class="text-center"> Sell Shares </H1>
+            <div class="card-body">
+                <form th:action="@{/Shares/sell/{id}(id=${COMPANY.companyName})}" th:object="${COMPANY}" method="post">
+
+                    <div class="form-group">
+
+                        <label for="CN"> Company Name </label>
+                        &emsp;
+                        <select name="CompanyName" id="CN">
+                            <option th:value="*{companyName}" th:text="*{companyName}"></option>
+                        </select>
+                        <br>
+                        <label> Number of Shares (delete the existing number and enter the numbre you want to buy)</label>
+                        <input type="number"
+                               name="SharesNumber"
+                               th:field="*{shareCount}"
+                               class="form-control"
+                               placeholder="Enter the Number of Shares">
+                    </div>
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

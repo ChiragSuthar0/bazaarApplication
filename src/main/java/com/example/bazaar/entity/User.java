@@ -32,13 +32,13 @@ public class User {
 
     }
 
-    public User(String userName, String firstName, String lastName, String password, String email, Double wallet) {
+    public User(String userName, String firstName, String lastName, String password, String email) {
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
-        this.wallet = wallet;
+        this.wallet = 15000D;
         role = "ROLE_USER";
     }
 

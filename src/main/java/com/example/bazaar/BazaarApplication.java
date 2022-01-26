@@ -25,12 +25,12 @@ public class BazaarApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-//        User user = new User("SutharChirag", "Chirag", "Suthar", "ChiR@g.$uTh@r", "sutharchirag128@gmail.com", 15000D);
+//        User user = new User("SutharChirag", "Chirag", "Suthar", "ChiR@g.$uTh@r", "sutharchirag128@gmail.com");
 //        userRepo.save(user);
-//        User user2 = new User("Chirag", "Suthar", "Chirag", "chiragsuthar", "sutharchirag129@gmail.com", 15000D);
+//        User user2 = new User("Chirag", "Suthar", "Chirag", "chiragsuthar", "sutharchirag129@gmail.com");
 //        userRepo.save(user2);
-
-
+//
+//
 //        shareDetail share = new shareDetail("comp1", 24D);
 //        shareRepo.save(share);
 //        shareDetail share1 = new shareDetail("comp2", 242D);

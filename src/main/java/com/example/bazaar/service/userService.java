@@ -4,6 +4,7 @@ import com.example.bazaar.entity.User;
 
 public interface userService {
     User getUserById(Long id);
-    void deleteUserById(Long id);
+    void deleteUserByUserName(Long id);
+    User getUserByUserName(String userName);
     User saveUser(User user);
 }

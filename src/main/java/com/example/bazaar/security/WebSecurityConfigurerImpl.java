@@ -35,7 +35,7 @@ public class WebSecurityConfigurerImpl extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .mvcMatchers("/admin").hasRole("ADMIN")
+                .mvcMatchers("/admin", "/register", "/updateNews", "/updatePrice").hasRole("ADMIN")
                 .mvcMatchers("/home").permitAll()
                 .mvcMatchers("/**").authenticated()
                 .and()

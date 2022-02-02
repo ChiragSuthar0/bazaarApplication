@@ -43,22 +43,6 @@ public class userController {
         return "home";
     }
 
-    @GetMapping("/register")
-    public String registerUser(Model model) {
-        model.addAttribute("USER", new User());
-
-        return "register";
-    }
-
-    @PostMapping("/register")
-    public String register(@ModelAttribute("USER") User user) {
-
-        user.setPassword(encoder.encode(user.getPassword()));
-        userServ.saveUser(user);
-
-        return "redirect:/home";
-    }
-
     @GetMapping("/profile")
     public String listShares(Model model, @AuthenticationPrincipal UserDetails user) {
         model.addAttribute("COMPANY", companyServ.allSharesOfUser(user.getUsername()));
@@ -127,6 +111,7 @@ public class userController {
 
     @GetMapping("/News")
     public String displayNews(Model model) {
+        model.addAttribute("currentNews", AdminController.getCurrentNews());
         model.addAttribute("NEWS", newsService.getAllNews());
         return "News_display";
     }

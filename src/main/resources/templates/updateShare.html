@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Register New User</title>
+    <title>Bazaar</title>
     <link rel="stylesheet" href="../static/stylesheet.css">
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -42,46 +42,28 @@
     </div>
 </nav>
 
+<br><br>
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <H1 class="text-center">Create New User</H1>
+            <H1 class="text-center"> Purchase Shares </H1>
             <div class="card-body">
-                <form th:action="@{/register}" th:object="${USER}" method="post">
-                    <div class="form-group">
-                        <label> First Name </label>
-                        <input type="text"
-                               name="firstName"
-                               th:field="*{firstName}"
-                               class="form-control"
-                               placeholder="Enter Student First Name">
-                    </div>
+                <form th:action="@{/updatePrice/{id}(id=${share.companyName})}" th:object="${share}" method="post">
 
                     <div class="form-group">
-                        <label> Last Name </label>
-                        <input type="text"
-                               name="lastName"
-                               th:field="*{lastName}"
-                               class="form-control"
-                               placeholder="Enter Student Last Name">
-                    </div>
 
-                    <div class="form-group">
-                        <label> Email </label>
-                        <input type="text"
-                               name="email"
-                               th:field="*{email}"
+                        <label for="CN"> Company Name </label>
+                        &emsp;
+                        <select name="CompanyName" id="CN">
+                            <option th:value="*{companyName}" th:text="*{companyName}"></option>
+                        </select>
+                        <br>
+                        <label> Share Price </label>
+                        <input type="number"
+                               name="SharesPrice"
+                               th:field="*{price}"
                                class="form-control"
-                               placeholder="Enter Student Email">
-                    </div>
-
-                    <div class="form-group">
-                        <label> Password </label>
-                        <input type="password"
-                               name="email"
-                               th:field="*{password}"
-                               class="form-control"
-                               placeholder="Enter Student Email">
+                               placeholder="Enter the Price of Shares">
                     </div>
 
                     <div class="box-footer">

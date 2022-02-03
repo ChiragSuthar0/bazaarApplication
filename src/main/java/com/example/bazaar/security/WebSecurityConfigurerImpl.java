@@ -40,7 +40,7 @@ public class WebSecurityConfigurerImpl extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/**").authenticated()
                 .and()
                 .formLogin()
-                .loginProcessingUrl("/home")
+                .defaultSuccessUrl("/home", true)
                 .and()
                 .httpBasic();
     }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
         <meta charset="UTF-8">
         <title>Bazaar | Bnb</title>
@@ -47,35 +47,48 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <!-- Brand -->
-    <a class="navbar-brand" href="#">Bazaar</a>
+    <div style="width: 100%;">
+        <div class="navbar-left-right" id="normal-nav">
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">Bazaar</a>
 
-    <!-- Toggler/collapsibe Button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <!-- Navbar links -->
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/home}">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/profile}">Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/SharePrices}">Share Prices</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/News}">News</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/home}">AboutUs</a>
-            </li>
-        </ul>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/home}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/profile}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/SharePrices}">Share Prices</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/News}">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/AboutUs}">AboutUs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="navbar-left-right" id="logout-button">
+            <a th:href="@{/logout}" class="btn btn-primary" sec:authorize="isAuthenticated()">
+                Logout
+            </a>
+            <a th:href="@{/login}" class="btn btn-primary" sec:authorize="isAnonymous()">
+                Login
+            </a>
+        </div>
     </div>
 </nav>
+
 
 <div class="container">
     <div class="row">

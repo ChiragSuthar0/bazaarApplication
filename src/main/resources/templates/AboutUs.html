@@ -1,34 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
         <meta charset="UTF-8">
         <title>Bazaar | Bnb</title>
         <link rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous">
-    <!-- CSS
-        ============================================ -->
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+
+        <!-- CSS
+            ============================================ -->
         <!-- Bootstrap CSS -->
-        <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-    
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+
         <!-- FontAwesome CSS -->
-        <link href="../static/css/font-awesome.min.css" rel="stylesheet">
-    
+        <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" />
+
         <!-- Ionicons CSS -->
-        <link href="../static/css/ionicons.min.css" rel="stylesheet">
-    
+        <link rel="stylesheet" th:href="@{/css/ionicons.min.css}" />
+
         <!-- Themify CSS -->
-        <link href="../static/css/themify-icons.css" rel="stylesheet">
-    
+        <link rel="stylesheet" th:href="@{/css/themify-icons.css}" />
+
         <!-- Plugins CSS -->
-        <link href="../static/css/plugins.css" rel="stylesheet">
-    
+        <link rel="stylesheet" th:href="@{/css/plugins.css}" />
+
         <!-- Helper CSS -->
-        <link href="../static/css/helper.css" rel="stylesheet">
-    
+        <link rel="stylesheet" th:href="@{/css/helper.css}" />
+
         <!-- Main CSS -->
-        <link href="../static/css/main.css" rel="stylesheet">
+        <link rel="stylesheet" th:href="@{/css/main.css}" />
     
     
     <style>
@@ -41,7 +42,54 @@
     }
     </style>
     </head>
-<body>
+
+    <body>
+
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <div style="width: 100%;">
+            <div class="navbar-left-right" id="normal-nav">
+                <!-- Brand -->
+                <a class="navbar-brand" href="#">Bazaar</a>
+
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/home}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/profile}">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/SharePrices}">Share Prices</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/News}">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/AboutUs}">AboutUs</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="navbar-left-right" id="logout-button">
+                <a th:href="@{/logout}" class="btn btn-primary" sec:authorize="isAuthenticated()">
+                    Logout
+                </a>
+                <a th:href="@{/login}" class="btn btn-primary" sec:authorize="isAnonymous()">
+                    Login
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+
     <h1 class="my-3 text-center">About Us</h1>
     <div class="container">The Finance Club at PDPU aims to bring together all students who share an interest and passion for finance and investments and share their knowledge and insights with each other. It aims at enabling them to discover recent trends and development in the field while allowing each individual to grow personally. We aim to provide the students with a hands on experience by organizing developmental opportunities through guest speakers, panel discussions, mock stock market simulation and many more such events in the field of finance.
 

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface companyService {
     company getNumberOfShares(String UserName);
-    company updateNumberOfShares(company comp);
+    void updateNumberOfShares(company comp);
     List<company> allSharesOfUser(String userName);
     company getNumberofSharesOfCompanyFromUser(String userName, String companyName);
 }

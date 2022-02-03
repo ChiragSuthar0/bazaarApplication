@@ -23,8 +23,8 @@ public class companyServiceImpl implements companyService {
     }
 
     @Override
-    public company updateNumberOfShares(company comp) {
-        return companyRepo.save(comp);
+    public void updateNumberOfShares(company comp) {
+        companyRepo.save(comp);
     }
 
     @Override

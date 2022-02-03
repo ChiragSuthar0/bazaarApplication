@@ -37,6 +37,12 @@ public class userController {
         this.newsService = newsService;
     }
 
+
+    @GetMapping("/AboutUs")
+    public String AboutUs(Model model) {
+        return "AboutUs";
+    }
+
     @GetMapping("/home")
     public String home(Model model) {
 //        model.addAttribute("home");

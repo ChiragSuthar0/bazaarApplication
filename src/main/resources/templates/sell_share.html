@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Bazaar</title>
-    <link rel="stylesheet" href="../static/stylesheet.css">
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
+    <head>
+        <meta charset="UTF-8">
+        <title>Bazaar | Bnb</title>
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+    <!-- CSS
+	============================================ -->
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+
+        <!-- FontAwesome CSS -->
+        <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" />
+
+        <!-- Ionicons CSS -->
+        <link rel="stylesheet" th:href="@{/css/ionicons.min.css}" />
+
+        <!-- Themify CSS -->
+        <link rel="stylesheet" th:href="@{/css/themify-icons.css}" />
+
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" th:href="@{/css/plugins.css}" />
+
+        <!-- Helper CSS -->
+        <link rel="stylesheet" th:href="@{/css/helper.css}" />
+
+        <!-- Main CSS -->
+        <link rel="stylesheet" th:href="@{/css/main.css}" />
+    
+          <style>
+            body{
+              background-color: rgb(207, 204, 204);
+            }
+            .card-body{
+                background-color: gray;
+            }
+            .card{
+                background-color: gray;
+            }
+            .container{
+                padding-bottom: 5%;
+            }
+            h1{
+                color: black;
+                text-decoration: solid;
+            }
+            </style>
 </head>
 <body>
 
@@ -42,7 +82,7 @@
     </div>
 </nav>
 
-<br><br>
+<br>
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
@@ -76,6 +116,96 @@
         </div>
     </div>
 </div>
-
+<footer>
+    <div class="footer-container footer-one pt-100 pb-50">
+        <div class="container wide">
+            <div class="row">
+                <div class="col footer-single-widget">
+                    <!--=======  copyright text  =======-->
+                    
+                </div>
+                <div class="col footer-single-widget">
+                    <!--=======  single widget  =======-->
+                    <h5 class="widget-title">ADDRESS</h5>
+    
+                    <!--=======  footer navigation container  =======-->
+    
+                    <div class="footer-nav-container">
+                        <nav>
+                            <p>Designed and maintained by: Chirag Suthar (backend)
+                                9428898240</p>
+                                <br>
+                                Design by:  Vipul Chaudhari (Frontend)
+                                97375 65473 
+                        </nav>
+                    </div>
+    
+                    <!--=======  End of footer navigation container  =======-->
+    
+                    <!--=======  single widget  =======-->
+                </div>
+                <div class="col footer-single-widget">
+                    <!--=======  single widget  =======-->
+                    <h5 class="widget-title">USEFUL LINKS</h5>
+    
+                    <!--=======  footer navigation container  =======-->
+    
+                    <div class="footer-nav-container">
+                        <nav>
+                            <ul>
+                                <li><a th:href="@{/home}">HOME</a></li>
+                                    <li><a th:href="@{/profile}">Profile</a></li>
+                                    <li><a th:href="@{/SharePrices}">Share Price</a></li>
+                                    <li><a th:href="@{/News}">News</a></li>
+                                    <li><a th:href="@{/home}">About Us</a></li>
+                                
+                                </ul>
+                        </nav>
+                    </div>
+    
+                    <!--=======  End of footer navigation container  =======-->
+    
+                    <!--=======  single widget  =======-->
+                </div>
+    
+                <div class="col footer-single-widget">
+                    <!--=======  single widget  =======-->
+                    <h5 class="widget-title">FOLLOW US ON</h5>
+    
+                    <!--=======  footer navigation container  =======-->
+    
+                    <div class="footer-nav-container footer-social-links">
+                        <nav>
+                            <ul>
+                                <li><a href="http://twitter.com/"><i class="fa fa-twitter"></i> Twitter</a></li>
+                                <li><a href="http://facebook.com/"> <i class="fa fa-facebook"></i> Facebook</a></li>
+                                <li><a href="http://instagram.com/"><i class="fa fa-instagram"></i> Instagram</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+    
+                    <!--=======  End of footer navigation container  =======-->
+    
+    
+                    <!--=======  single widget  =======-->
+                </div>
+                <div class="col footer-single-widget">
+                    <!--=======  single widget  =======-->
+    
+                    <div class="footer-subscription-widget">
+                        <h2 class="footer-subscription-title">Email</h2>
+                        <p><a href="mailtogoldweaverugs@gmail.com">bazzar@gmail.com</a></p>
+                        <h2 class="footer-subscription-title">Website</h2>
+                        <p><a href="www.bazzar.com">www.bazzar.com</a></p>
+    
+                    </div>
+    
+                    <!--=======  End of single widget  =======-->
+                </div>
+            </div>
+        </div>
+    </div>
+    </footer>
 </body>
+
 </html>

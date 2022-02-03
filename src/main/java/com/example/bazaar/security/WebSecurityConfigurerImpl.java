@@ -36,10 +36,11 @@ public class WebSecurityConfigurerImpl extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .mvcMatchers("/admin", "/register", "/updateNews", "/updatePrice").hasRole("ADMIN")
-                .mvcMatchers("/home").permitAll()
+                .mvcMatchers("/home", "/static/**").permitAll()
                 .mvcMatchers("/**").authenticated()
                 .and()
                 .formLogin()
+                .loginProcessingUrl("/home")
                 .and()
                 .httpBasic();
     }

@@ -88,6 +88,11 @@
 
 <div class="container">
     <div class="row">
+        <h1> Latest News </h1>
+    </div>
+    <textarea th:text="*{currentNews}" style="width: 100%; height: available" readonly disabled></textarea>
+    <br><br><br>
+    <div class="row">
         <h1> News </h1>
     </div>
 
@@ -149,7 +154,7 @@
                                     <li><a th:href="@{/profile}">Profile</a></li>
                                     <li><a th:href="@{/SharePrices}">Share Price</a></li>
                                     <li><a th:href="@{/News}">News</a></li>
-                                    <li><a th:href="@{/home}">About Us</a></li>
+                                    <li><a th:href="@{/AboutUs}">About Us</a></li>
                                 
                                 </ul>
                         </nav>

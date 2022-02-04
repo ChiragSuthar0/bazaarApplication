@@ -62,6 +62,8 @@ public class AdminController {
     @GetMapping("/register")
     public String registerUser(Model model) {
         model.addAttribute("USER", new User());
+        String pass = encoder.encode("chirag");
+        System.out.println(pass);
         return "register";
     }
 

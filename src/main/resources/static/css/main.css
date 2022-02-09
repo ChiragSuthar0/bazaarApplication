@@ -519,7 +519,15 @@ a.scroll-top:hover {
 
 /*=============================================
 =            02. Header            =
-=============================================*/
+*/
+
+.kaala-color {
+  color: black;
+}
+
+
+
+/*=============================================*/
 /*
     Site Mobile Navigation
 ------------------------------------------*/
@@ -15501,7 +15509,7 @@ nav.site-nav > ul > li ul.mega-menu-column-5 > li .mega-sub-menu li:last-child a
 =            40. Footer             =
 =============================================*/
 .footer-container.footer-one {
-  background-color: #f8f8f8;
+  background-color: #016064;
 }
 
 .footer-container.footer-one.dark-bg {

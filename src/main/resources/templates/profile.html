@@ -117,7 +117,7 @@
 <!--            <td th:text="${company.sharePrice}"></td>-->
             <td th:text="${company.shareCount}"></td>
             <td>
-                <a th:href="@{/Shares/buy/{id}(id=${company.companyName})}" class="btn btn-primary"> Buy </a>
+                <a th:href="@{/Shares/buy/{id}(id=${company.companyName})}" class="btn btn-success"> Buy </a>
                 <a th:href="@{/Shares/sell/{id}(id=${company.companyName})}" class="btn btn-danger"> Sell </a>
             </td>
         </tr>

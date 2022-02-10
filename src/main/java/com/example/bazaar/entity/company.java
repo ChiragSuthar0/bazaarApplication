@@ -27,6 +27,10 @@ public class company {
         this.shareCount = shareCount;
     }
 
+    public Long helloId(){
+        return id;
+    }
+
     public String getCompanyName() {
         return companyName;
     }

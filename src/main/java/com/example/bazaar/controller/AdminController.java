@@ -37,6 +37,7 @@ public class AdminController {
 
     @GetMapping("/admin")
     public String admin(Model model) {
+        System.out.println("Admin Called");
         model.addAttribute("shares", shareServ.getAllShareDetails());
         return "admin";
     }
@@ -62,8 +63,6 @@ public class AdminController {
     @GetMapping("/register")
     public String registerUser(Model model) {
         model.addAttribute("USER", new User());
-        String pass = encoder.encode("chirag");
-        System.out.println(pass);
         return "register";
     }
 
@@ -79,7 +78,7 @@ public class AdminController {
     @GetMapping("/updateNews")
     public String updateNews(Model model) {
         model.addAttribute("NEWS", new News());
-        return "news";
+        return "update_news";
     }
 
     @PostMapping("/updateNews")

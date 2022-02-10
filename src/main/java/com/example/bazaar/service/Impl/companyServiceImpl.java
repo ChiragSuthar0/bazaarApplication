@@ -33,7 +33,7 @@ public class companyServiceImpl implements companyService {
     }
 
     @Override
-    public company getNumberofSharesOfCompanyFromUser(String userName, String companyName) {
-        return companyRepo.findByCompanyNameAndUserName(companyName, userName);
+    public company getNumberOfSharesOfCompanyFromUser(String userName, String companyName) {
+        return companyRepo.findByUserNameAndCompanyName(userName, companyName);
     }
 }

@@ -1,224 +1,348 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <head>
-        <meta charset="UTF-8">
-        <title>Bazaar | Bnb</title>
-        <link rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous">
-    <!-- CSS
-	============================================ -->
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAZAAR | BUY STOCKS</title>
+    <link rel="shortcut icon" href="https://static.wixstatic.com/media/f6865b_73c4d575c50e4dcab4b1f777eb008416~mv2.jpg/v1/crop/x_62,y_0,w_537,h_516/fill/w_55,h_49,al_c,q_80,usm_0.66_1.00_0.01/photo.webp">
 
-        <!-- FontAwesome CSS -->
-        <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" />
+    <link rel="stylesheet" th:href='@{/bazaar/css/buy.css}'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-        <!-- Ionicons CSS -->
-        <link rel="stylesheet" th:href="@{/css/ionicons.min.css}" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
-        <!-- Themify CSS -->
-        <link rel="stylesheet" th:href="@{/css/themify-icons.css}" />
 
-        <!-- Plugins CSS -->
-        <link rel="stylesheet" th:href="@{/css/plugins.css}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-        <!-- Helper CSS -->
-        <link rel="stylesheet" th:href="@{/css/helper.css}" />
+    <style>
+        .loading__img{
+            height: 30%;
+            border-radius: 100px;
 
-        <!-- Main CSS -->
-        <link rel="stylesheet" th:href="@{/css/main.css}" />
-    
-          <style>
-            body{
-              background-color: rgb(207, 204, 204);
-            }
-            .card-body{
-                background-color: gray;
-            }
-            .card{
-                background-color: gray;
-            }
-            .container{
-                padding-bottom: 5%;
-            }
-            h1{
-                color: black;
-                text-decoration: solid;
-            }
-            </style>
+        }
+
+        #loading{
+            position: fixed;
+            z-index: 9999;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #191919 ;
+
+        }
+
+
+    </style>
+
 </head>
-<body>
+<body >
+<!--<div id="loading">-->
+<!--    <img th:src='@{/bazaar/img/donaldduckmoney.gif}' class="loading__img" alt="">-->
+<!--</div>-->
 
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <div style="width: 100%;">
-        <div class="navbar-left-right" id="normal-nav">
-            <!-- Brand -->
-            <a class="navbar-brand" href="#">Bazaar</a>
+<!--<script>-->
+<!--    var preLoader = document.getElementById("loading");-->
+<!--    setTimeout(() => {-->
+<!--        preLoader.style.display = "none";-->
+<!--    }, 1000)-->
+<!--    preLoader.style.display = "flex";-->
+<!--</script>-->
+<nav id="nav">
+    <div class="back-circle back-circle-1"></div>
 
-            <!-- Toggler/collapsibe Button -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <!-- Navbar links -->
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/home}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/profile}">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/SharePrices}">Share Prices</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/News}">News</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/AboutUs}">AboutUs</a>
-                    </li>
-                </ul>
-            </div>
+    <ul>
+        <li class="link link-1"><a th:href="@{/profile}"><span>&nbsp; PROFILE &nbsp;&nbsp;</span></a></li>
+        <li class="link link-2"><a th:href="@{/AboutUs}"><span>About Us</span></a></li>
+        <li class="link link-3"><a th:href="@{/News}"><span>News</span></a></li>
+        <li class="link link-4"><a th:href="@{/logout}"><span>logout</span></a></li>
+    </ul>
+    <div class="back-circle back-circle-2"></div>
+    <div class="back-circle back-circle-3"></div>
+    <div class="nav-btn" id="nav-btn">
+        <div class="nav-bars">
+            <div class="bar bar-1"></div>
+            <div class="bar bar-2"></div>
+            <div class="bar bar-3"></div>
         </div>
-        <div class="navbar-left-right" id="logout-button">
-            <a th:href="@{/logout}" class="btn btn-primary" sec:authorize="isAuthenticated()">
-                Logout
-            </a>
-            <a th:href="@{/login}" class="btn btn-primary" sec:authorize="isAnonymous()">
-                Login
-            </a>
-        </div>
+
     </div>
+
 </nav>
 
 
-<br>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <H1 class="text-center"> Sell Shares </H1>
-            <div class="card-body">
-                <form th:action="@{/Shares/sell/{id}(id=${COMPANY.companyName})}" th:object="${COMPANY}" method="post">
+<div class="wrapper">
+    <header>
+        <h2 class="heading">BUY STOCKS</h2>
+    </header>
 
-                    <div class="form-group">
+    <main>
+        <section class="username__wrapper">
+            <button class="username" onclick="window.open('/profile')">
+                <div class="username__flashy"></div>
+                <span class="username__span" th:text="*{Wallet.userName}"></span>
+            </button>
+        </section>
 
-                        <label for="CN"> Company Name </label>
+        <section class="container monetary__status">
+            <p class="monetary__status__caption">Money in Bank [Rs]</p>
+            <div class="row">
+                <div class="col-sm monetary__status__wrapper">
+                    <div data-aos="zoom-in"  data-aos-duration="1500" class="monetary__status__mb">
+                        <div class="monetary__status__mb__flashy"></div>
+                        <span class="monetary__status__mb__span" id="mb" th:text="*{Wallet.wallet}">
+                            </span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="form__wrapper">
+
+            <form th:action="@{/Shares/sell/{id}(id=${COMPANY.companyName})}" th:object="${COMPANY}" method="post" class="container form">
+
+                <div class="form-group">
+                    <div>
+                        <label for="CN" style="background-color: purple; color: white; padding: 7px; border-radius: 9px"> Company Name </label>
                         &emsp;
-                        <select name="CompanyName" id="CN">
+                        <select name="CompanyName" id="CN" style="background-color: purple; color: white; padding: 9px; border-radius: 9px; width: 80%" disabled>
                             <option th:value="*{companyName}" th:text="*{companyName}"></option>
                         </select>
-                        <br>
-                        <label> Number of Shares (delete the existing number and enter the numbre you want to buy)</label>
-                        <input type="number"
-                               name="SharesNumber"
-                               th:field="*{shareCount}"
-                               class="form-control"
-                               placeholder="Enter the Number of Shares">
                     </div>
+                    <br>
+                    <label> Number of Shares </label>
+                    <input type="number"
+                           name="SharesNumber"
+                           th:field="*{shareCount}"
+                           class="form-control"
+                           placeholder="Enter the Number of Shares">
+                </div>
 
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">
-                            Submit
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">
+                        Submit
+                    </button>
+                </div>
+            </form>
+
+
+
+            <!--                <form th:action="@{/Shares/buy/{id}(id=${COMPANY.companyName})}" method="POST" class="container form" autocomplete="off">-->
+            <!--&lt;!&ndash;                    <input type="text" class="d-none" name="firm" id="settingbuy">&ndash;&gt;-->
+            <!--                    <div class="row">-->
+            <!--                        <div class="col-sm">-->
+            <!--                            <div class="select-box">-->
+            <!--                                <div class="options-container">-->
+            <!--                                    <div class="option">-->
+            <!--                                        <select name="CompanyName" class="radio" id="CN">-->
+            <!--                                            <option th:value="*{COMPANY.companyName}" th:text="*{COMPANY.companyName}"></option>-->
+            <!--                                        </select>-->
+            <!--&lt;!&ndash;                                        <input type="radio" class="radio"  name="company" th:value="*{COMPANY.companyName}" th:text="*{COMPANY.companyName}"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <label th:text="*{COMPANY.companyName}"></label>&ndash;&gt;-->
+            <!--                                    </div>-->
+
+            <!--                                </div>-->
+            <!--                            -->
+            <!--                                <div class="selected" id="selected">-->
+            <!--                                    Select a Company-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+
+            <!--                        </div>-->
+            <!--                    </div>-->
+
+            <!--                    <script>-->
+            <!--                        let x = document.querySelector(".selected");-->
+            <!--                        let settingbuy = document.querySelector("#settingbuy");-->
+            <!--                        setInterval(()=>{-->
+            <!--                            if (x.innerText !== "Select a Company") {-->
+            <!--                                settingbuy.value = x.innerText;-->
+
+            <!--                            }-->
+            <!--                        },700)-->
+
+            <!--                    </script>-->
+
+
+            <!--                    <div class="buy__label">-->
+            <!--                        <p class="monetary__status__caption">Price per stock [Rs]</p>-->
+            <!--                    </div>-->
+            <!--                    <div class="row ">-->
+            <!--                        <div class="col-sm">-->
+            <!--                            -->
+            <!--                            <div class="bprice__wrapper ">-->
+            <!--                                -->
+            <!--                                <button class="bprice" disabled>-->
+            <!--                                    <div class="bprice__flashy"></div>-->
+            <!--                                    <span class="bprice__span" id="bprice" th:text="*{price.price}"></span>-->
+            <!--                                </button>-->
+            <!--                            </div>-->
+            <!--                        -->
+            <!--                        </div>-->
+            <!--                    </div>-->
+
+            <!--                    <script>-->
+            <!--                        let p = document.getElementById("selected");-->
+            <!--                        let y = document.getElementById("bprice");-->
+            <!--                        setInterval(() => {-->
+            <!--                                if(p.innerText !== "Select a Company"){-->
+            <!--                                axios.get('/bazaar/letsbuy',{-->
+            <!--                                params: {-->
+            <!--                                    "firmName": p.innerText-->
+            <!--                                    }-->
+            <!--                                })-->
+            <!--                                .then(res => {-->
+            <!--                                    y.innerText=res.data;-->
+
+            <!--                                });-->
+
+            <!--                            }-->
+
+            <!--                        },900);-->
+
+            <!--                    </script>-->
+
+
+            <!--                    <div class="buy__label">-->
+            <!--                        <p class="monetary__status__caption">Number Of Stocks</p>-->
+            <!--                    </div>-->
+            <!--                    <div class="row ">-->
+            <!--                        <div class="col-sm">-->
+            <!--                    -->
+            <!--                            <div class="bprice__wrapper ">-->
+            <!--                    -->
+            <!--                                <button class="bprice" disabled>-->
+            <!--                                    <div class="bprice__flashy"></div>-->
+            <!--                                    <input class="bprice__span" id="gtotal" th:field="*{COMPANY.shareCount}"></input>-->
+            <!--                                </button>-->
+            <!--                            </div>-->
+            <!--                    -->
+            <!--                        </div>-->
+            <!--                    </div>-->
+
+
+            <!--&lt;!&ndash;                    <div id="submitAlert" class="alert alert-danger mt-4 alert-dismissible fade show buy__alert" role="alert">&ndash;&gt;-->
+            <!--&lt;!&ndash;                        Number of stocks you've entered <strong>exceeds</strong> your buying capacity.&ndash;&gt;-->
+            <!--&lt;!&ndash;                        &ndash;&gt;-->
+            <!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+
+
+            <!--&lt;!&ndash;                    <div class="row mt-5 buy__input">&ndash;&gt;-->
+            <!--&lt;!&ndash;                        <div class="f__group">&ndash;&gt;-->
+            <!--&lt;!&ndash;                            <input id="bstock" type="number" name="nstocks" class="f__input" placeholder="Number of Stocks" th:field="*{COMPANY.shareCount}" required>&ndash;&gt;-->
+            <!--&lt;!&ndash;                            <label for="bstock" class="f__label">Number of Stocks</label>&ndash;&gt;-->
+            <!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+            <!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+
+            <!--                    <div class="row f__submit" id="submitBtn">-->
+            <!--                        <button class="f__submit__btn " type="submit">Transact</button>-->
+            <!--                    </div>-->
+
+
+
+            <!--                    -->
+            <!--&lt;!&ndash;                    <script>&ndash;&gt;-->
+            <!--&lt;!&ndash;                        const submitBtn = document.getElementById("submitBtn");&ndash;&gt;-->
+            <!--&lt;!&ndash;                        const submitAlert = document.getElementById("submitAlert");&ndash;&gt;-->
+
+            <!--&lt;!&ndash;                        submitAlert.classList.add("d-none");&ndash;&gt;-->
+
+            <!--&lt;!&ndash;                        setInterval(() => {&ndash;&gt;-->
+            <!--&lt;!&ndash;                            const x = document.getElementById("bprice");&ndash;&gt;-->
+            <!--&lt;!&ndash;                            const y = document.getElementById("bstock");&ndash;&gt;-->
+            <!--&lt;!&ndash;                            const z = document.getElementById("gtotal");&ndash;&gt;-->
+            <!--&lt;!&ndash;                            let c = document.querySelector(".selected")&ndash;&gt;-->
+
+            <!--&lt;!&ndash;                            let bprice = parseInt(x.innerText);&ndash;&gt;-->
+            <!--&lt;!&ndash;                            let bstock = parseInt(y.value);&ndash;&gt;-->
+            <!--&lt;!&ndash;                            let gtotal = parseInt(z.innerText);&ndash;&gt;-->
+            <!--&lt;!&ndash;                            gtotal = bprice * bstock;&ndash;&gt;-->
+            <!--&lt;!&ndash;                            z.innerText = (isNaN(gtotal) || gtotal < 0) ? 0 : gtotal;&ndash;&gt;-->
+
+
+            <!--&lt;!&ndash;                            if (c.innerText === "Select a Company") {&ndash;&gt;-->
+            <!--&lt;!&ndash;                                submitBtn.classList.add("d-none")&ndash;&gt;-->
+            <!--&lt;!&ndash;                                submitAlert.innerHTML = "Please <strong>select</strong> a company for buying stock(s)."&ndash;&gt;-->
+            <!--&lt;!&ndash;                                submitAlert.classList.remove("d-none")&ndash;&gt;-->
+            <!--&lt;!&ndash;                            }&ndash;&gt;-->
+            <!--&lt;!&ndash;                            else {&ndash;&gt;-->
+
+            <!--&lt;!&ndash;                                if ((y.value == Math.floor(y.value)) && y.value > 0) {&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    let mb=0;&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    axios.get("/bazaar/letsbuymb")&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    .then(res =>{&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        mb=res.data;&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        if (gtotal > mb) {&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        submitBtn.classList.add("d-none")&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        submitAlert.innerHTML = "The grand total <strong>exceeds</strong> your buying capacity :("&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        submitAlert.classList.remove("d-none")&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        }&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        else {&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        submitBtn.classList.remove("d-none")&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        submitAlert.classList.add("d-none")&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        }&ndash;&gt;-->
+
+            <!--&lt;!&ndash;                                    });&ndash;&gt;-->
+
+            <!--&lt;!&ndash;                                }&ndash;&gt;-->
+            <!--&lt;!&ndash;                                else {&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    submitBtn.classList.add("d-none")&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    submitAlert.innerHTML = "Number of stocks has to be a <strong>positive integer</strong>."&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    submitAlert.classList.remove("d-none")&ndash;&gt;-->
+            <!--&lt;!&ndash;                                }&ndash;&gt;-->
+
+            <!--&lt;!&ndash;                            }&ndash;&gt;-->
+
+
+
+            <!--&lt;!&ndash;                        }, 700);&ndash;&gt;-->
+
+            <!--&lt;!&ndash;                    </script>&ndash;&gt;-->
+
+            <!--                    -->
+            <!--                </form>-->
+        </section>
+    </main>
 </div>
-<footer>
-    <div class="footer-container footer-one pt-100 pb-50">
-        <div class="container wide">
-            <div class="row">
-                <div class="col footer-single-widget">
-                    <!--=======  copyright text  =======-->
-                    
-                </div>
-                <div class="col footer-single-widget">
-                    <!--=======  single widget  =======-->
-                    <h5 class="widget-title">ADDRESS</h5>
-    
-                    <!--=======  footer navigation container  =======-->
-    
-                    <div class="footer-nav-container">
-                        <nav>
-                            <p>Designed and maintained by: Chirag Suthar (backend)
-                                9428898240</p>
-                                <br>
-                                Design by:  Vipul Chaudhari (Frontend)
-                                97375 65473 
-                        </nav>
-                    </div>
-    
-                    <!--=======  End of footer navigation container  =======-->
-    
-                    <!--=======  single widget  =======-->
-                </div>
-                <div class="col footer-single-widget">
-                    <!--=======  single widget  =======-->
-                    <h5 class="widget-title">USEFUL LINKS</h5>
-    
-                    <!--=======  footer navigation container  =======-->
-    
-                    <div class="footer-nav-container">
-                        <nav>
-                            <ul>
-                                <li><a th:href="@{/home}">HOME</a></li>
-                                    <li><a th:href="@{/profile}">Profile</a></li>
-                                    <li><a th:href="@{/SharePrices}">Share Price</a></li>
-                                    <li><a th:href="@{/News}">News</a></li>
-                                    <li><a th:href="@{/AboutUs}">About Us</a></li>
-                                
-                                </ul>
-                        </nav>
-                    </div>
-    
-                    <!--=======  End of footer navigation container  =======-->
-    
-                    <!--=======  single widget  =======-->
-                </div>
-    
-                <div class="col footer-single-widget">
-                    <!--=======  single widget  =======-->
-                    <h5 class="widget-title">FOLLOW US ON</h5>
-    
-                    <!--=======  footer navigation container  =======-->
-    
-                    <div class="footer-nav-container footer-social-links">
-                        <nav>
-                            <ul>
-                                <li><a href="http://twitter.com/"><i class="fa fa-twitter"></i> Twitter</a></li>
-                                <li><a href="http://facebook.com/"> <i class="fa fa-facebook"></i> Facebook</a></li>
-                                <li><a href="http://instagram.com/"><i class="fa fa-instagram"></i> Instagram</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-    
-                    <!--=======  End of footer navigation container  =======-->
-    
-    
-                    <!--=======  single widget  =======-->
-                </div>
-                <div class="col footer-single-widget">
-                    <!--=======  single widget  =======-->
-    
-                    <div class="footer-subscription-widget">
-                        <h2 class="footer-subscription-title">Email</h2>
-                        <p><a href="mailtogoldweaverugs@gmail.com">bazzar@gmail.com</a></p>
-                        <h2 class="footer-subscription-title">Website</h2>
-                        <p><a href="www.bazzar.com">www.bazzar.com</a></p>
-    
-                    </div>
-    
-                    <!--=======  End of single widget  =======-->
-                </div>
-            </div>
-        </div>
-    </div>
-    </footer>
-</body>
 
+
+
+<script>
+    const selected = document.querySelector(".selected");
+    const optionsContainer = document.querySelector(".options-container");
+
+    const optionsList = document.querySelectorAll(".option");
+
+    selected.addEventListener("click", () => {
+        optionsContainer.classList.toggle("active");
+    });
+
+    optionsList.forEach(o => {
+        o.addEventListener("click", () => {
+            selected.innerHTML = o.querySelector("label").innerHTML;
+            optionsContainer.classList.remove("active");
+        });
+    });
+
+</script>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<script th:src='@{/bazaar/js/nav.js}'></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+</body>
 </html>

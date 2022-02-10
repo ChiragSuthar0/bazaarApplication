@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <head>
-        <meta charset="UTF-8">
-        <title>Bazaar | Bnb</title>
-        <link rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>Bazaar | Bnb</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
     <!-- CSS
 	============================================ -->
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
 
-        <!-- FontAwesome CSS -->
-        <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" />
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" />
 
-        <!-- Ionicons CSS -->
-        <link rel="stylesheet" th:href="@{/css/ionicons.min.css}" />
+    <!-- Ionicons CSS -->
+    <link rel="stylesheet" th:href="@{/css/ionicons.min.css}" />
 
-        <!-- Themify CSS -->
-        <link rel="stylesheet" th:href="@{/css/themify-icons.css}" />
+    <!-- Themify CSS -->
+    <link rel="stylesheet" th:href="@{/css/themify-icons.css}" />
 
-        <!-- Plugins CSS -->
-        <link rel="stylesheet" th:href="@{/css/plugins.css}" />
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" th:href="@{/css/plugins.css}" />
 
-        <!-- Helper CSS -->
-        <link rel="stylesheet" th:href="@{/css/helper.css}" />
+    <!-- Helper CSS -->
+    <link rel="stylesheet" th:href="@{/css/helper.css}" />
 
-        <!-- Main CSS -->
-        <link rel="stylesheet" th:href="@{/css/main.css}" />
-    
+    <!-- Main CSS -->
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+
     <style>
         body{
             background-color: rgb(207, 204, 204);
-          }
-          .card-body{
-              background-color: gray;
-          }
-          .card{
-              background-color: gray;
-              padding-top: 2%;
-          }
-          h1{
-              color:black ;
-          }
-          .container{
-              padding-top: 3%;
-          }
-        </style>
-    </head>
+        }
+        .card-body{
+            background-color: gray;
+        }
+        .card{
+            background-color: gray;
+            padding-top: 2%;
+        }
+        h1{
+            color:black ;
+        }
+        .container{
+            padding-top: 3%;
+        }
+    </style>
+</head>
 <body>
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
@@ -98,7 +98,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <H1 class="text-center">Create New Student</H1>
+            <H1 class="text-center">Create New User</H1>
             <div class="card-body">
                 <form th:action="@{/register}" th:object="${USER}" method="post">
                     <div class="form-group">

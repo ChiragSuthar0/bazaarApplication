@@ -8,5 +8,5 @@ public interface companyService {
     company getNumberOfShares(String UserName);
     void updateNumberOfShares(company comp);
     List<company> allSharesOfUser(String userName);
-    company getNumberofSharesOfCompanyFromUser(String userName, String companyName);
+    company getNumberOfSharesOfCompanyFromUser(String userName, String companyName);
 }

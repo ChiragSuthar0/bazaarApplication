@@ -69,11 +69,11 @@ public class userController {
     @GetMapping("/Shares/buy/{id}")
     public String buyShareForm(@PathVariable String id, Model model, @AuthenticationPrincipal UserDetails user) {
         if(companyServ.getNumberOfSharesOfCompanyFromUser(user.getUsername(), id) == null) {
-            System.out.println("lakdfh adkjfh adlkjfh adslkjf hadslkfj hadflkjahdf\n\n\n\n\n\n\n\n\n\n\n\n");
+
             model.addAttribute("COMPANY", new company(user.getUsername(), id, 0L));
         }
         else {
-            System.out.println("hello sir how are you this fine noon\n\n\n\n\n\n\n\n\n\n\n\n");
+
             model.addAttribute("COMPANY", companyServ.getNumberOfSharesOfCompanyFromUser(user.getUsername(), id));
         }
         model.addAttribute("Wallet", userServ.getUserByUserName(user.getUsername()));
@@ -90,18 +90,14 @@ public class userController {
         company purchaseShare;
         if (companyServ.getNumberOfSharesOfCompanyFromUser(details.getUsername(), id) == null) {
             purchaseShare = new company(details.getUsername(), id, 0L);
-            System.out.println("\n\nnull hai\n\n");
-            System.out.println(id + "\n"
-                                +details.getUsername() + "\n"
-                                +comp.getShareCount()
-            );
+
             purchaseShare.setUserName(details.getUsername());
             purchaseShare.setCompanyName(id);
             purchaseShare.setShareCount(comp.getShareCount());
         }
         else {
             purchaseShare = companyServ.getNumberOfSharesOfCompanyFromUser(details.getUsername(), id);
-            System.out.println(purchaseShare.helloId());
+
             purchaseShare.setShareCount(purchaseShare.getShareCount() + comp.getShareCount());
         }
 

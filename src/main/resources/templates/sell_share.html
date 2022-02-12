@@ -104,7 +104,7 @@
 
         <section class="form__wrapper">
 
-            <form th:action="@{/Shares/sell/{id}(id=${COMPANY.companyName})}" th:object="${COMPANY}" method="post" class="container form">
+            <form th:action="@{/Shares/sell/{id}(id=${COMPANY.companyName})}" th:object="${COMPANY}" method="post" class="container form" id="sell_share_form">
 
                 <div class="form-group">
                     <div>
@@ -125,193 +125,30 @@
 
 
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" id="sell_share_button">
                         Submit
                     </button>
                 </div>
             </form>
-
-
-
-            <!--                <form th:action="@{/Shares/buy/{id}(id=${COMPANY.companyName})}" method="POST" class="container form" autocomplete="off">-->
-            <!--&lt;!&ndash;                    <input type="text" class="d-none" name="firm" id="settingbuy">&ndash;&gt;-->
-            <!--                    <div class="row">-->
-            <!--                        <div class="col-sm">-->
-            <!--                            <div class="select-box">-->
-            <!--                                <div class="options-container">-->
-            <!--                                    <div class="option">-->
-            <!--                                        <select name="CompanyName" class="radio" id="CN">-->
-            <!--                                            <option th:value="*{COMPANY.companyName}" th:text="*{COMPANY.companyName}"></option>-->
-            <!--                                        </select>-->
-            <!--&lt;!&ndash;                                        <input type="radio" class="radio"  name="company" th:value="*{COMPANY.companyName}" th:text="*{COMPANY.companyName}"/>&ndash;&gt;-->
-            <!--&lt;!&ndash;                                        <label th:text="*{COMPANY.companyName}"></label>&ndash;&gt;-->
-            <!--                                    </div>-->
-
-            <!--                                </div>-->
-            <!--                            -->
-            <!--                                <div class="selected" id="selected">-->
-            <!--                                    Select a Company-->
-            <!--                                </div>-->
-            <!--                            </div>-->
-
-            <!--                        </div>-->
-            <!--                    </div>-->
-
-            <!--                    <script>-->
-            <!--                        let x = document.querySelector(".selected");-->
-            <!--                        let settingbuy = document.querySelector("#settingbuy");-->
-            <!--                        setInterval(()=>{-->
-            <!--                            if (x.innerText !== "Select a Company") {-->
-            <!--                                settingbuy.value = x.innerText;-->
-
-            <!--                            }-->
-            <!--                        },700)-->
-
-            <!--                    </script>-->
-
-
-            <!--                    <div class="buy__label">-->
-            <!--                        <p class="monetary__status__caption">Price per stock [Rs]</p>-->
-            <!--                    </div>-->
-            <!--                    <div class="row ">-->
-            <!--                        <div class="col-sm">-->
-            <!--                            -->
-            <!--                            <div class="bprice__wrapper ">-->
-            <!--                                -->
-            <!--                                <button class="bprice" disabled>-->
-            <!--                                    <div class="bprice__flashy"></div>-->
-            <!--                                    <span class="bprice__span" id="bprice" th:text="*{price.price}"></span>-->
-            <!--                                </button>-->
-            <!--                            </div>-->
-            <!--                        -->
-            <!--                        </div>-->
-            <!--                    </div>-->
-
-            <!--                    <script>-->
-            <!--                        let p = document.getElementById("selected");-->
-            <!--                        let y = document.getElementById("bprice");-->
-            <!--                        setInterval(() => {-->
-            <!--                                if(p.innerText !== "Select a Company"){-->
-            <!--                                axios.get('/bazaar/letsbuy',{-->
-            <!--                                params: {-->
-            <!--                                    "firmName": p.innerText-->
-            <!--                                    }-->
-            <!--                                })-->
-            <!--                                .then(res => {-->
-            <!--                                    y.innerText=res.data;-->
-
-            <!--                                });-->
-
-            <!--                            }-->
-
-            <!--                        },900);-->
-
-            <!--                    </script>-->
-
-
-            <!--                    <div class="buy__label">-->
-            <!--                        <p class="monetary__status__caption">Number Of Stocks</p>-->
-            <!--                    </div>-->
-            <!--                    <div class="row ">-->
-            <!--                        <div class="col-sm">-->
-            <!--                    -->
-            <!--                            <div class="bprice__wrapper ">-->
-            <!--                    -->
-            <!--                                <button class="bprice" disabled>-->
-            <!--                                    <div class="bprice__flashy"></div>-->
-            <!--                                    <input class="bprice__span" id="gtotal" th:field="*{COMPANY.shareCount}"></input>-->
-            <!--                                </button>-->
-            <!--                            </div>-->
-            <!--                    -->
-            <!--                        </div>-->
-            <!--                    </div>-->
-
-
-            <!--&lt;!&ndash;                    <div id="submitAlert" class="alert alert-danger mt-4 alert-dismissible fade show buy__alert" role="alert">&ndash;&gt;-->
-            <!--&lt;!&ndash;                        Number of stocks you've entered <strong>exceeds</strong> your buying capacity.&ndash;&gt;-->
-            <!--&lt;!&ndash;                        &ndash;&gt;-->
-            <!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-
-
-            <!--&lt;!&ndash;                    <div class="row mt-5 buy__input">&ndash;&gt;-->
-            <!--&lt;!&ndash;                        <div class="f__group">&ndash;&gt;-->
-            <!--&lt;!&ndash;                            <input id="bstock" type="number" name="nstocks" class="f__input" placeholder="Number of Stocks" th:field="*{COMPANY.shareCount}" required>&ndash;&gt;-->
-            <!--&lt;!&ndash;                            <label for="bstock" class="f__label">Number of Stocks</label>&ndash;&gt;-->
-            <!--&lt;!&ndash;                        </div>&ndash;&gt;-->
-            <!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-
-            <!--                    <div class="row f__submit" id="submitBtn">-->
-            <!--                        <button class="f__submit__btn " type="submit">Transact</button>-->
-            <!--                    </div>-->
-
-
-
-            <!--                    -->
-            <!--&lt;!&ndash;                    <script>&ndash;&gt;-->
-            <!--&lt;!&ndash;                        const submitBtn = document.getElementById("submitBtn");&ndash;&gt;-->
-            <!--&lt;!&ndash;                        const submitAlert = document.getElementById("submitAlert");&ndash;&gt;-->
-
-            <!--&lt;!&ndash;                        submitAlert.classList.add("d-none");&ndash;&gt;-->
-
-            <!--&lt;!&ndash;                        setInterval(() => {&ndash;&gt;-->
-            <!--&lt;!&ndash;                            const x = document.getElementById("bprice");&ndash;&gt;-->
-            <!--&lt;!&ndash;                            const y = document.getElementById("bstock");&ndash;&gt;-->
-            <!--&lt;!&ndash;                            const z = document.getElementById("gtotal");&ndash;&gt;-->
-            <!--&lt;!&ndash;                            let c = document.querySelector(".selected")&ndash;&gt;-->
-
-            <!--&lt;!&ndash;                            let bprice = parseInt(x.innerText);&ndash;&gt;-->
-            <!--&lt;!&ndash;                            let bstock = parseInt(y.value);&ndash;&gt;-->
-            <!--&lt;!&ndash;                            let gtotal = parseInt(z.innerText);&ndash;&gt;-->
-            <!--&lt;!&ndash;                            gtotal = bprice * bstock;&ndash;&gt;-->
-            <!--&lt;!&ndash;                            z.innerText = (isNaN(gtotal) || gtotal < 0) ? 0 : gtotal;&ndash;&gt;-->
-
-
-            <!--&lt;!&ndash;                            if (c.innerText === "Select a Company") {&ndash;&gt;-->
-            <!--&lt;!&ndash;                                submitBtn.classList.add("d-none")&ndash;&gt;-->
-            <!--&lt;!&ndash;                                submitAlert.innerHTML = "Please <strong>select</strong> a company for buying stock(s)."&ndash;&gt;-->
-            <!--&lt;!&ndash;                                submitAlert.classList.remove("d-none")&ndash;&gt;-->
-            <!--&lt;!&ndash;                            }&ndash;&gt;-->
-            <!--&lt;!&ndash;                            else {&ndash;&gt;-->
-
-            <!--&lt;!&ndash;                                if ((y.value == Math.floor(y.value)) && y.value > 0) {&ndash;&gt;-->
-            <!--&lt;!&ndash;                                    let mb=0;&ndash;&gt;-->
-            <!--&lt;!&ndash;                                    axios.get("/bazaar/letsbuymb")&ndash;&gt;-->
-            <!--&lt;!&ndash;                                    .then(res =>{&ndash;&gt;-->
-            <!--&lt;!&ndash;                                        mb=res.data;&ndash;&gt;-->
-            <!--&lt;!&ndash;                                        if (gtotal > mb) {&ndash;&gt;-->
-            <!--&lt;!&ndash;                                        submitBtn.classList.add("d-none")&ndash;&gt;-->
-            <!--&lt;!&ndash;                                        submitAlert.innerHTML = "The grand total <strong>exceeds</strong> your buying capacity :("&ndash;&gt;-->
-            <!--&lt;!&ndash;                                        submitAlert.classList.remove("d-none")&ndash;&gt;-->
-            <!--&lt;!&ndash;                                        }&ndash;&gt;-->
-            <!--&lt;!&ndash;                                        else {&ndash;&gt;-->
-            <!--&lt;!&ndash;                                        submitBtn.classList.remove("d-none")&ndash;&gt;-->
-            <!--&lt;!&ndash;                                        submitAlert.classList.add("d-none")&ndash;&gt;-->
-            <!--&lt;!&ndash;                                        }&ndash;&gt;-->
-
-            <!--&lt;!&ndash;                                    });&ndash;&gt;-->
-
-            <!--&lt;!&ndash;                                }&ndash;&gt;-->
-            <!--&lt;!&ndash;                                else {&ndash;&gt;-->
-            <!--&lt;!&ndash;                                    submitBtn.classList.add("d-none")&ndash;&gt;-->
-            <!--&lt;!&ndash;                                    submitAlert.innerHTML = "Number of stocks has to be a <strong>positive integer</strong>."&ndash;&gt;-->
-            <!--&lt;!&ndash;                                    submitAlert.classList.remove("d-none")&ndash;&gt;-->
-            <!--&lt;!&ndash;                                }&ndash;&gt;-->
-
-            <!--&lt;!&ndash;                            }&ndash;&gt;-->
-
-
-
-            <!--&lt;!&ndash;                        }, 700);&ndash;&gt;-->
-
-            <!--&lt;!&ndash;                    </script>&ndash;&gt;-->
-
-            <!--                    -->
-            <!--                </form>-->
         </section>
     </main>
 </div>
 
+<script>
+    var form = document.getElementById('sell_share_form');
+    var submitButton = document.getElementById('sell_share_button');
 
+    form.addEventListener('submit', function() {
+
+        // Disable the submit button
+        submitButton.setAttribute('disabled', 'disabled');
+
+        // Change the "Submit" text
+        submitButton.innerText='Please Wait...';
+        // submitButton.value = 'Please wait...';
+
+    }, false);
+</script>
 
 <script>
     const selected = document.querySelector(".selected");

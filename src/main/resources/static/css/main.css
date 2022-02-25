@@ -152,7 +152,7 @@ h6 {
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 40px;
   line-height: 42px;
 }
 
@@ -16744,7 +16744,6 @@ nav.center-menu > ul{
   display: grid;
   place-items: center;
   width: 222.3px;
-  height: 80px;
   text-align: center;
 }
 .col.footer-single-widget.col-sm-12.col-lg-3.col-md-3 {
@@ -16759,7 +16758,7 @@ nav.center-menu > ul{
  }
 
 
-/*==== Resonsive Media Queries End ====*/
+/*==== Responsive Media Queries End ====*/
 
 
 

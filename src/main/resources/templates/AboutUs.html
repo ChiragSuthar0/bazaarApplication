@@ -3,11 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <title>Bazaar | Bnb</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
         <link rel="stylesheet"
               href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">
-
+        
         <!-- CSS
             ============================================ -->
         <!-- Bootstrap CSS -->
@@ -30,8 +33,9 @@
 
         <!-- Main CSS -->
         <link rel="stylesheet" th:href="@{/css/main.css}" />
-    
-    
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:wght@400;700;&display=swap" rel="stylesheet">
+        <link rel="stylesheet" th:href="@{/css/newFooteratAboutUs.css}">
+        <link rel="stylesheet" th:href="@{/css/newNavatAboutUs.css}">
     <style>
     body{
       background-color: rgb(207, 204, 204);
@@ -43,64 +47,58 @@
     </style>
     </head>
 
-    <body>
-
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-        <div style="width: 100%;">
-            <div class="navbar-left-right" id="normal-nav">
-                <!-- Brand -->
-                <a class="navbar-brand" href="#">Bazaar</a>
-
-                <!-- Toggler/collapsibe Button -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Navbar links -->
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/home}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/profile}">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/SharePrices}">Share Prices</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/News}">News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/AboutUs}">AboutUs</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="navbar-left-right" id="logout-button">
-                <a th:href="@{/logout}" class="btn btn-primary" sec:authorize="isAuthenticated()">
-                    Logout
-                </a>
-                <a th:href="@{/login}" class="btn btn-primary" sec:authorize="isAnonymous()">
-                    Login
-                </a>
-            </div>
-        </div>
-    </nav>
+    <header class="header" style="position:sticky; top:0; z-index:5">
+        <h1 class="logo">
+            <a href="#" style="text-decoration:none" >
+                <h1 style="background-image: linear-gradient(to bottom, #a445b2, #fa4299);
+                    -webkit-background-clip: text;
+                    color: transparent; ">Bazaar
+                </h1>
+            </a>
+        </h1>
+        <ul class="main-nav">
+            <li><a th:href="@{/home}" style="background-image: linear-gradient(to bottom, #a445b2, #fa4299);
+                -webkit-background-clip: text;
+                color: transparent; ">Home</a></li>
+            <li><a th:href="@{/AboutUs}" style="    background-image: linear-gradient(to bottom, #a445b2, #fa4299);
+                -webkit-background-clip: text;
+                color: transparent; ">About</a></li>
+            <li><a th:href="@{/SharePrices}" style="    background-image: linear-gradient(to bottom, #a445b2, #fa4299);
+                -webkit-background-clip: text;
+                color: transparent; ">Share Prices</a></li>
+            <li><a  th:href="@{/News}" style="    background-image: linear-gradient(to bottom, #a445b2, #fa4299);
+                -webkit-background-clip: text;
+                color: transparent; ">News</a></li>
+            <li><a th:href="@{/profile}" style="    background-image: linear-gradient(to bottom, #a445b2, #fa4299);
+                -webkit-background-clip: text;
+                color: transparent; ">Profile</a></li>
+            <li><a th:href="@{/logout}" class="btn btn-primary" style="    background-image: linear-gradient(to bottom, #a445b2, #fa4299);
+                -webkit-background-clip: text;
+                color: transparent; border:none;"  sec:authorize="isAuthenticated()">
+                Logout
+            </a></li>
+            <li><a th:href="@{/login}" class="btn btn-primary" style="    background-image: linear-gradient(to bottom, #a445b2, #fa4299);
+              -webkit-background-clip: text;
+              color: transparent; border:none;" sec:authorize="isAnonymous()">
+                Login
+            </a></li>
+        </ul>
+    </header>
 
 
+    <body style="background-image: linear-gradient(to bottom, #a445b2, #fa4299);">
 
-    <h1 class="my-3 text-center">About Us</h1>
-    <div class="container">The Finance Club at PDPU aims to bring together all students who share an interest and passion for finance and investments and share their knowledge and insights with each other. It aims at enabling them to discover recent trends and development in the field while allowing each individual to grow personally. We aim to provide the students with a hands on experience by organizing developmental opportunities through guest speakers, panel discussions, mock stock market simulation and many more such events in the field of finance.
+    <h1 class="my-3 text-center" style="color:white">About Us</h1>
+    <div class="container" style="color:white">The Finance Club at PDPU aims to bring together all students who share an interest and passion for finance and investments and share their knowledge and insights with each other. It aims at enabling them to discover recent trends and development in the field while allowing each individual to grow personally. We aim to provide the students with a hands on experience by organizing developmental opportunities through guest speakers, panel discussions, mock stock market simulation and many more such events in the field of finance.
 
         The purpose of finance club is to promote interest and impart their knowledge in the field of finance.
         To become a space of learning in the field of finance and investment that creates successful professionals.
         Foster an environment among student to encourage continuous learning and discovery of recent trends in finance.
         Help members develop practical investment skills and test them in the markets; and to create superior access to career opportunities in the investment industry.</p>
-    </div>    
+    </div>
     <div class="container">
         <div class="container my-3">
-            
+
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
               <div class="col">
                 <div class="card shadow-sm">
@@ -110,15 +108,15 @@
                     <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
                       dy=".3em"></text>
                   </svg>
-          
+
                   <div class="card-body">
                     <p class="card-text">About 1st one</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-outline-secondary">Read More...</button>
-                        
+
                       </div>
-                      
+
                     </div>
                   </div>
                 </div>
@@ -131,15 +129,13 @@
                     <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
                       dy=".3em"></text>
                   </svg>
-          
+
                   <div class="card-body">
                     <p class="card-text">About 2nd one</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary"><a href="linkedin.com"> Read More...</a></button>
-                        
+                        <button type="button" class="btn btn-sm btn-outline-secondary"><a href="linkedin.com"> Read More... </a></button>
                       </div>
-                      
                     </div>
                   </div>
                 </div>
@@ -152,13 +148,13 @@
                     <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
                       dy=".3em"></text>
                   </svg>
-          
+
                   <div class="card-body">
                     <p class="card-text">About 3rd one</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-outline-secondary"><a href="linkedin.com"> Read More...</a></button>
-                        
+
                       </div>
 
                     </div>
@@ -168,95 +164,85 @@
             </div>
           </div>
     </div>
-</body>
-<footer>
-<div class="footer-container footer-one pt-100 pb-50">
-    <div class="container wide">
-        <div class="row">
-            <div class="col footer-single-widget">
-                <!--=======  copyright text  =======-->
-                
-            </div>
-            <div class="col footer-single-widget">
-                <!--=======  single widget  =======-->
-                <h5 class="widget-title">ADDRESS</h5>
+    <footer class="footer">
+      <div class="footer__addr">
+        <h1 class="footer__logo">Bulls And Bears</h1>
 
-                <!--=======  footer navigation container  =======-->
+        <h2>Contact</h2>
 
-                <div class="footer-nav-container">
-                    <nav>
-                        <p>Designed and maintained by: Chirag Suthar (backend)
-                            9428898240</p>
-                            <br>
-                            Design by:  Vipul Chaudhari (Frontend)
-                            97375 65473 
-                    </nav>
-                </div>
+        <address>
+          Raisan Village, Gandhinagar, Gujarat 382007<br>
 
-                <!--=======  End of footer navigation container  =======-->
+          <a class="footer__btn" href="mailto:bnbpdpu@gmail.com">Email Us</a>
+        </address>
+      </div>
 
-                <!--=======  single widget  =======-->
-            </div>
-            <div class="col footer-single-widget">
-                <!--=======  single widget  =======-->
-                <h5 class="widget-title">USEFUL LINKS</h5>
+      <ul class="footer__nav">
+        <li class="nav__item">
+          <h2 class="nav__title">Services</h2>
 
-                <!--=======  footer navigation container  =======-->
+          <ul class="nav__ul">
+            <li>
+              <a href="#">Online</a>
+            </li>
 
-                <div class="footer-nav-container">
-                    <nav>
-                        <ul>
-                            <li><a th:href="@{/home}">HOME</a></li>
-                                <li><a th:href="@{/profile}">Profile</a></li>
-                                <li><a th:href="@{/SharePrices}">Share Price</a></li>
-                                <li><a th:href="@{/News}">News</a></li>
-                                <li><a th:href="@{/AboutUs}">About Us</a></li>
-                            
-                            </ul>
-                    </nav>
-                </div>
+            <li>
+              <a href="#">Print</a>
+            </li>
 
-                <!--=======  End of footer navigation container  =======-->
+            <li>
+              <a href="#">Alternative Ads</a>
+            </li>
+          </ul>
+        </li>
 
-                <!--=======  single widget  =======-->
-            </div>
+        <li class="nav__item">
+          <h2 class="nav__title">About Bulls and Bears</h2>
 
-            <div class="col footer-single-widget">
-                <!--=======  single widget  =======-->
-                <h5 class="widget-title">FOLLOW US ON</h5>
+          <ul class="nav__ul">
+            <li>
+              <a href="#">Hardware Design</a>
+            </li>
 
-                <!--=======  footer navigation container  =======-->
-
-                <div class="footer-nav-container footer-social-links">
-                    <nav>
-                        <ul>
-                            <li><a href="http://twitter.com/"><i class="fa fa-twitter"></i> Twitter</a></li>
-                            <li><a href="http://facebook.com/"> <i class="fa fa-facebook"></i> Facebook</a></li>
-                            <li><a href="http://instagram.com/"><i class="fa fa-instagram"></i> Instagram</a></li>
-                        </ul>
-                    </nav>
-                </div>
-
-                <!--=======  End of footer navigation container  =======-->
+            <li>
+              <a href="#">Software Design</a>
+            </li>
 
 
-                <!--=======  single widget  =======-->
-            </div>
-            <div class="col footer-single-widget">
-                <!--=======  single widget  =======-->
 
-                <div class="footer-subscription-widget">
-                    <h2 class="footer-subscription-title">Email</h2>
-                    <p><a href="mailtogoldweaverugs@gmail.com">bazzar@gmail.com</a></p>
-                    <h2 class="footer-subscription-title">Website</h2>
-                    <p><a href="www.bazzar.com">www.bazzar.com</a></p>
+          </ul>
+        </li>
 
-                </div>
+        <li class="nav__item">
+          <h2 class="nav__title">Legal</h2>
 
-                <!--=======  End of single widget  =======-->
-            </div>
+          <ul class="nav__ul">
+            <li>
+              <a href="#">Privacy Policy</a>
+            </li>
+
+            <li>
+              <a href="#">Terms of Use</a>
+            </li>
+
+            <li>
+              <a href="#">Sitemap</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="legal">
+        <p>&copy; 2022 BullsandBears. All rights reserved.</p>
+
+        <div class="legal__links">
+          <span>Maintained by <!--span class="heart">♥</span-->
+
+              Chirag Suthar, Saumya Shah, Malay Damani
+            </span>
         </div>
-    </div>
-</div>
-</footer>
+      </div>
+    </footer>
+  </body>
+
 </html>

@@ -102,23 +102,24 @@
                     
                 </div>
 
-                <p class="monetary__status__caption">Money invested [Rs]</p>
+<!--                <p class="monetary__status__caption">Money invested [Rs]</p>-->
 
-                <div class="row">
-                    <div class="col-sm monetary__status__wrapper">
-                        <div data-aos="zoom-in" data-aos-duration="1500" class="monetary__status__mb">
-                            <div class="monetary__status__mb__flashy"></div>
-                            <span class="monetary__status__mb__span" id="mi">
-                                15000
-                            </span>
-                
-                        </div>
-                    </div>
-                    
-                </div>
+<!--                <div class="row">-->
+<!--                    <div class="col-sm monetary__status__wrapper">-->
+<!--                        <div data-aos="zoom-in" data-aos-duration="1500" class="monetary__status__mb">-->
+<!--                            <div class="monetary__status__mb__flashy"></div>-->
+<!--                            <span class="monetary__status__mb__span" id="mi">-->
+<!--                                15000-->
+<!--                            </span>-->
+<!--                -->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    -->
+<!--                </div>-->
 
 
             </section>
+
 
 
 
@@ -136,15 +137,26 @@
                         <tbody>
                             <tr class="row text-center stock__status__table__row" th:each = "company: ${COMPANY}">
                                 <td class="col font-weight-lighter stock__status__table__cell" th:text="${company.companyName}"></td>
-                                <td class="col font-weight-lighter stock__status__table__cell nstocks" th:text="${company.shareCount}">50</td>
+                                <td class="col font-weight-lighter stock__status__table__cell nstocks qwerty" th:text="${company.shareCount}"></td>
                                 <td class="col font-weight-lighter stock__status__table__cell">
-                                    <a th:href="@{/Shares/sell/{id}(id=${company.companyName})}" class="btn btn-danger"> Sell </a>
+                                    <a th:href="@{/Shares/sell/{id}(id=${company.companyName})}" class=" asdf btn btn-danger"> Sell </a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </section>
+
+            <script>
+                let q = document.getElementsByClassName("qwerty");
+                let w = document.getElementsByClassName("asdf");
+
+                for (let i = 0; i < q.length; i++) {
+                    if(q.item(i).innerHTML.valueOf() == 0) {
+                        document.getElementsByClassName("asdf").item(i).setAttribute("href", "");
+                    }
+                }
+            </script>
 
             <script>
                 let nstocks = document.getElementsByClassName("nstocks");

@@ -69,6 +69,7 @@ public class AdminController {
     @PostMapping("/register")
     public String register(@ModelAttribute("USER") User user) {
 
+        user.setRole("ROLE_USER");
         user.setPassword(encoder.encode(user.getPassword()));
         userServ.saveUser(user);
 

@@ -102,6 +102,13 @@
             <div class="card-body">
                 <form th:action="@{/register}" th:object="${USER}" method="post">
                     <div class="form-group">
+                        <label> UserName </label>
+                        <input type="text"
+                               name="userName"
+                               th:field="*{userName}"
+                               class="form-control"
+                               placeholder="Enter Student First Name">
+
                         <label> First Name </label>
                         <input type="text"
                                name="firstName"

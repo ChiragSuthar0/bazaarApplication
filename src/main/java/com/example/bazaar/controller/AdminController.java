@@ -72,7 +72,7 @@ public class AdminController {
         user.setPassword(encoder.encode(user.getPassword()));
         userServ.saveUser(user);
 
-        return "redirect:/home";
+        return "redirect:/admin";
     }
 
     @GetMapping("/updateNews")

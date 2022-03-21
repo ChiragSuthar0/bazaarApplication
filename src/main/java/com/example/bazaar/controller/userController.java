@@ -8,7 +8,6 @@ import com.example.bazaar.service.companyService;
 import com.example.bazaar.service.shareService;
 import com.example.bazaar.service.userService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,6 +17,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.time.LocalDateTime;
 
 @Controller
 public class userController {
@@ -109,6 +110,10 @@ public class userController {
         }
         userWallet.setWallet(userWallet.getWallet() - (share.getPrice() * comp.getShareCount()));
 
+        String log = details.getUsername() + " bought " + comp.getShareCount() + " shares of " + comp.getCompanyName() + "at" + LocalDateTime.now();
+
+        logCreation.log_Creation(log);
+
         companyServ.updateNumberOfShares(purchaseShare);
         return "redirect:/profile";
     }
@@ -144,6 +149,10 @@ public class userController {
 
         userWallet.setWallet(userWallet.getWallet() + (share.getPrice() * comp.getShareCount()));
         purchaseShare.setShareCount(purchaseShare.getShareCount() - comp.getShareCount());
+
+        String log = details.getUsername() + " sold " + comp.getShareCount() + " shares of " + comp.getCompanyName() + "at" + LocalDateTime.now();
+
+        logCreation.log_Creation(log);
 
         companyServ.updateNumberOfShares(purchaseShare);
         return "redirect:/profile";

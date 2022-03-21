@@ -33,7 +33,7 @@ public class BazaarApplication implements CommandLineRunner {
 //        userRepo.deleteAll();
 //        shareRepo.deleteAll();
 
-        User user3 = new User("SutharChirag", "Chirag", "Suthar", "ChiR@g.$uTh@r", "sutharchirag128@gmail.com");
+//        User user3 = new User("SutharChirag", "Chirag", "Suthar", "ChiR@g.$uTh@r", "sutharchirag128@gmail.com");
 //        user3.setPassword(encoder.encode(user3.getPassword()));
 //        userRepo.save(user3);
 //        User user4 = new User("Chirag", "Suthar", "Chirag", "chiragsuthar", "sutharchirag129@gmail.com");

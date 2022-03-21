@@ -70,6 +70,7 @@ public class AdminController {
     public String register(@ModelAttribute("USER") User user) {
 
         user.setRole("ROLE_USER");
+        user.setWallet(15000D);
         user.setPassword(encoder.encode(user.getPassword()));
         userServ.saveUser(user);
 

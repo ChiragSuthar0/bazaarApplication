@@ -110,7 +110,7 @@ public class userController {
         }
         userWallet.setWallet(userWallet.getWallet() - (share.getPrice() * comp.getShareCount()));
 
-        String log = details.getUsername() + " bought " + comp.getShareCount() + " shares of " + id + " at " + LocalDateTime.now();
+        String log = details.getUsername() + " bought " + comp.getShareCount() + " shares of " + id + " at " + LocalDateTime.now() + "( Price: Rs." + share.getPrice() + ")";
 
         logCreation.log_Creation(log);
 
@@ -150,7 +150,7 @@ public class userController {
         userWallet.setWallet(userWallet.getWallet() + (share.getPrice() * comp.getShareCount()));
         purchaseShare.setShareCount(purchaseShare.getShareCount() - comp.getShareCount());
 
-        String log = details.getUsername() + " sold " + comp.getShareCount() + " shares of " + id + " at " + LocalDateTime.now();
+        String log = details.getUsername() + " sold " + comp.getShareCount() + " shares of " + id + " at " + LocalDateTime.now() + "( Price: Rs." + share.getPrice() + ")";
 
         logCreation.log_Creation(log);
 

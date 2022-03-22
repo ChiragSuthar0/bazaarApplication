@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'BnbBazaar'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8D46DBB3660E4B788929C851745D3EC6 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5C0FC4171EF546E5AA98152A1BF6486A }}
           package: '*.war'

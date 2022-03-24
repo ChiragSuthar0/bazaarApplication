@@ -136,11 +136,13 @@
                         </thead>
                         <tbody>
                             <tr class="row text-center stock__status__table__row" th:each = "company: ${COMPANY}">
-                                <td class="col font-weight-lighter stock__status__table__cell" th:text="${company.companyName}"></td>
-                                <td class="col font-weight-lighter stock__status__table__cell nstocks qwerty" th:text="${company.shareCount}"></td>
-                                <td class="col font-weight-lighter stock__status__table__cell">
-                                    <a th:href="@{/Shares/sell/{id}(id=${company.companyName})}" class=" asdf btn btn-danger"> Sell </a>
-                                </td>
+                                <th:block th:if="${company.shareCount > 0}">
+                                    <td class="col font-weight-lighter stock__status__table__cell" th:text="${company.companyName}"></td>
+                                    <td class="col font-weight-lighter stock__status__table__cell nstocks qwerty" th:text="${company.shareCount}"></td>
+                                    <td class="col font-weight-lighter stock__status__table__cell">
+                                        <a th:href="@{/Shares/sell/{id}(id=${company.companyName})}" class=" asdf btn btn-danger"> Sell </a>
+                                    </td>
+                                </th:block>
                             </tr>
                         </tbody>
                     </table>

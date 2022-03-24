@@ -108,17 +108,16 @@
 
                 <div class="form-group">
                     <div>
-                        <label for="CN" style="background-color: purple; color: white; padding: 7px; border-radius: 9px"> Company Name </label>
+                        <label style="background-color: purple; color: white; padding: 7px; border-radius: 9px"> Company Name </label>
                         &emsp;
-                        <select name="CompanyName" id="CN" style="background-color: purple; color: white; padding: 9px; border-radius: 9px; width: 80%" disabled>
-                            <option th:value="*{companyName}" th:text="*{companyName}"></option>
-                        </select>
+                        <label style="background-color: #e742a0; color: white; padding: 7px; border-radius: 9px; width: 86%" th:value="*{companyName}" th:text="*{companyName}"> Company Name </label>
                     </div>
                     <br>
                     <label> Number of Shares </label>
                     <input type="number"
                            name="SharesNumber"
                            th:field="*{shareCount}"
+                           min="0"
                            class="form-control"
                            placeholder="Enter the Number of Shares">
                 </div>

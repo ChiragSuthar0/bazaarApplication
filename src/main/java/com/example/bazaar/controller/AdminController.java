@@ -23,7 +23,7 @@ public class AdminController {
     @Autowired
     PasswordEncoder encoder;
 
-    private static String currentNews;
+
     private shareService shareServ;
     private userService userServ;
     private NewsService newsServ;
@@ -85,12 +85,7 @@ public class AdminController {
 
     @PostMapping("/updateNews")
     public String updatingNews(@ModelAttribute News news) {
-        currentNews = news.getNewsData();
         newsServ.saveNews(news);
         return "redirect:/admin";
-    }
-
-    public static String getCurrentNews() {
-        return currentNews;
     }
 }

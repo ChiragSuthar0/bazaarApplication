@@ -90,10 +90,12 @@
 
             <section class="form__wrapper">
                 <h2 id="timeStamp">
-
                 </h2>
-                <p class="lead py-2 px-3 font-weight-light" style="color: rgba(0,0,0,.70);" id="news" th:text="*{currentNews}">
-                </p>
+                <th:block th:with="latestNews=${NEWS[NEWS.size() - 1].getNewsData()}">
+                    <p class="lead py-2 px-3 font-weight-light" style="color: rgba(0,0,0,.70);" id="news" th:text="${latestNews}">
+                    </p>
+                </th:block>
+
             </section>
 
             <section class="form__wrapper">

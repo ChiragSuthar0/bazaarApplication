@@ -121,7 +121,6 @@ public class userController {
     @GetMapping("/News")
     public String displayNews(Model model, @AuthenticationPrincipal UserDetails user) {
         model.addAttribute("userName", user.getUsername());
-        model.addAttribute("currentNews", AdminController.getCurrentNews());
         model.addAttribute("NEWS", newsService.getAllNews());
         return "news";
     }

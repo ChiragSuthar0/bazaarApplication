@@ -237,26 +237,52 @@ public class BazaarApplication implements CommandLineRunner {
 //        userRepo.save(user64);
 //        userRepo.save(user65);
 //        userRepo.save(user66);
+//
+//        User usr = new User("admin1", "admin", "admin", "12345678", "pdpubnb@gmail.com");
+//        usr.setPassword(encoder.encode(usr.getPassword()));
+//        usr.setRole("ROLE_ADMIN");
+//        userRepo.save(usr);
+//
+//        User usr2 = new User("admin2", "admin", "admin", "12345678", "pdpubnb@gmail.com");
+//        usr.setPassword(encoder.encode(usr.getPassword()));
+//        usr.setRole("ROLE_ADMIN");
+//        userRepo.save(usr2);
+//
+//        User usr3 = new User("admin3", "admin", "admin", "12345678", "pdpubnb@gmail.com");
+//        usr.setPassword(encoder.encode(usr.getPassword()));
+//        usr.setRole("ROLE_ADMIN");
+//        userRepo.save(usr3);
+//
+//        User usr4 = new User("admin4", "admin", "admin", "12345678", "pdpubnb@gmail.com");
+//        usr.setPassword(encoder.encode(usr.getPassword()));
+//        usr.setRole("ROLE_ADMIN");
+//        userRepo.save(usr4);
 
 
-
-
-//        shareDetail share = new shareDetail("ICICI Bank", 2D);
+//        shareDetail share = new shareDetail("ICICI Bank", 200D);
 //        shareRepo.save(share);
-//        shareDetail share1 = new shareDetail("Cadilla Healthcare", 2D);
+//        shareDetail share1 = new shareDetail("Adani Wilmar", 115D);
 //        shareRepo.save(share1);
-//        shareDetail share2 = new shareDetail("Nestle India", 2D);
+//        shareDetail share2 = new shareDetail("Nestle India", 330D);
 //        shareRepo.save(share2);
-//        shareDetail share3 = new shareDetail("Infosys", 2D);
+//        shareDetail share3 = new shareDetail("Infosys", 135D);
 //        shareRepo.save(share3);
-//        shareDetail share4 = new shareDetail("Airtel", 2D);
+//        shareDetail share4 = new shareDetail("Airtel", 50D);
 //        shareRepo.save(share4);
-//        shareDetail share5 = new shareDetail("L & T", 2D);
+//        shareDetail share5 = new shareDetail("L & T", 150D);
 //        shareRepo.save(share5);
-//        shareDetail share6 = new shareDetail("Reliance", 2D);
+//        shareDetail share6 = new shareDetail("Reliance", 220D);
 //        shareRepo.save(share6);
-//        shareDetail share7 = new shareDetail("Adani Green", 2D);
+//        shareDetail share7 = new shareDetail("Adani Greens", 200D);
 //        shareRepo.save(share7);
+//        shareDetail share8 = new shareDetail("Zydus Healthcare", 330D);
+//        shareRepo.save(share8);
+//        shareDetail share9 = new shareDetail("Nestle India", 1690D);
+//        shareRepo.save(share9);
+//        shareDetail share0 = new shareDetail("Zomato", 70D);
+//        shareRepo.save(share0);
+//        shareDetail share01 = new shareDetail("Aditya Birla Finance Capital", 290D);
+//        shareRepo.save(share01);
 
     }
 }

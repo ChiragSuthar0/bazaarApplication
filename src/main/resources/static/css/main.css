@@ -16708,7 +16708,7 @@ li.list-style-in-list{
   .header-bottom.pt-md-40.pb-md-40.pt-sm-40.pb-sm-40 {
     height: 80px;
     width: 100%;
-    display: grid;
+
     place-content: center;
 }
 

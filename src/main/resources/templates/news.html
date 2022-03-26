@@ -91,24 +91,25 @@
             <section class="form__wrapper">
                 <h2 id="timeStamp">
                 </h2>
-                <th:block th:with="latestNews=${NEWS[NEWS.size() - 1].getNewsData()}">
-                    <p class="lead py-2 px-3 font-weight-light" style="color: rgba(0,0,0,.70);" id="news" th:text="${latestNews}">
-                    </p>
+                <th:block th:if="${NEWS.size() > 0}">
+                    <th:block th:with="latestNews=${NEWS[NEWS.size() - 1].getNewsData()}">
+                        <p class="lead py-2 px-3 font-weight-light" style="color: rgba(0,0,0,.70);" id="news" th:text="${latestNews}">
+                        </p>
+                    </th:block>
                 </th:block>
-
             </section>
 
             <section class="form__wrapper">
                 <table class="stock__status__table">
                     <thead>
                     <tr class="row text-center stock__status__table__header">
-                        <th class="col font-weight-lighter stock__status__table__header__cell">S.No</th>
+                        <th class="col3 font-weight-lighter stock__status__table__header__cell">S.No</th>
                         <th class="col font-weight-lighter stock__status__table__header__cell">NEWS</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr class="row text-center stock__status__table__row" th:each = "news: ${NEWS}">
-                        <td class="col font-weight-lighter stock__status__table__cell" th:text="${news.id}"></td>
+                        <td class="col3 font-weight-lighter stock__status__table__cell" th:text="${news.id}"></td>
                         <td class="col font-weight-lighter stock__status__table__cell nstocks" th:text="${news.newsData}">50</td>
                     </tr>
                     </tbody>

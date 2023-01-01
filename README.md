@@ -1,4 +1,4 @@
-# bazaarApplication
+# Bazaar Application
 
 This is an Application I built in collaboration with BullsAndBears: The Financial Club of PDEU. The Idea behind the Application / Game is to help realise the youngsters the value of an information.
 

@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -14,10 +15,13 @@ public class UserDetailsImpl implements UserDetails {
     private final String password;
     private final List<GrantedAuthority> rolesAndAuthorities;
 
+    private final LocalDateTime creationTime;
+
     public UserDetailsImpl(User user) {
         this.username = user.getUserName();
         this.password = user.getPassword();
         this.rolesAndAuthorities = List.of(new SimpleGrantedAuthority(user.getRole()));
+        creationTime = user.getCreationTime();
     }
 
     @Override
@@ -52,6 +56,6 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return creationTime.isBefore(LocalDateTime.of(2023, 02, 13, 0, 0));
     }
 }

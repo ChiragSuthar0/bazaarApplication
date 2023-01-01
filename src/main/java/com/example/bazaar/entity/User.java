@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Entity
 public class User {
@@ -27,6 +28,7 @@ public class User {
     private Double wallet;
 
     private String role;
+    private LocalDateTime creationTime;
 
     public User() {
 
@@ -40,6 +42,15 @@ public class User {
         this.email = email;
         this.wallet = 15000D;
         role = "ROLE_USER";
+        creationTime = LocalDateTime.now();
+    }
+
+    public LocalDateTime getCreationTime() {
+        return creationTime;
+    }
+
+    public void setCreationTime(LocalDateTime creationTime) {
+        this.creationTime = creationTime;
     }
 
     public String getRole() {

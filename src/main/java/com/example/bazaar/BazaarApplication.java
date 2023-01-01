@@ -30,12 +30,12 @@ public class BazaarApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-//        userRepo.deleteAll();
-//        shareRepo.deleteAll();
+        userRepo.deleteAll();
+        shareRepo.deleteAll();
 
-//        User user = new User("username", "fname", "sname", "password", "email@email.com");
-//        user.setPassword(encoder.encode(user.getPassword()));
-//        userRepo.save(user);
+        User user = new User("uname", "fname", "sname", "pword", "email@email.com");
+        user.setPassword(encoder.encode(user.getPassword()));
+        userRepo.save(user);
 
 //        User user1 = new User("MSD", "Malay", "Damani", "12345678", "damanimalay@gmail.com");
 //        User user2 = new User("MBB", "Manav", "Bhavsar", "lakelake", "manpdeu@gmail.com");
